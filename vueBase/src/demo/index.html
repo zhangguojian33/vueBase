@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-Language" contect="zh-CN">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>VueBase</title>
+    <link rel="stylesheet" type="text/css" href="../public/lib/mui/mui.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/app.css">
+</head>
+<body>
+<script type="text/javascript" src="../public/lib/mui/mui.js"></script>
+<script type="text/javascript" src="../public/lib/vue.js"></script>
+<script type="text/javascript" src="../public/lib/vue-router.js"></script>
+<script type="text/javascript" src="../public/lib/sea.js"></script>
+<script type="text/javascript" src="../public/lib/seajs-css.js"></script>
+<script type="text/javascript" src="../public/lib/seajs-text.js"></script>
+<div id="page">
+    <!-- 使用指令 v-link 进行导航。 -->
+    <!--高级使用方法：可以利用点击事件来跳转 route.go()-->
+    <nav class="mui-bar mui-bar-tab">
+        <a v-link="{ path: '/' }" class="mui-tab-item mui-active" >
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">我的名片</span>
+        </a>
+        <a v-link="{ path: '/my-collection' }" class="mui-tab-item" >
+            <span class="mui-icon mui-icon-email"></span>
+            <span class="mui-tab-label">我的照片</span>
+        </a>
+        <a v-link="{ path: '/my-photo' }" class="mui-tab-item" >
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">我的收藏</span>
+        </a>
+    </nav>
+    <!-- 路由外链 -->
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript">
+    // sea.js配置入口文件
+    seajs.config({
+        charset: 'utf-8',
+        timeout: 20000,
+        debug: true,
+        base: './'
+    }).use('./config.js');
+    //自定义事件，模拟点击“首页选项卡”
+    document.addEventListener('gohome', function() {
+        var defaultTab = document.getElementById("defaultTab");
+        //模拟首页点击
+        mui.trigger(defaultTab, 'tap');
+        //切换选项卡高亮
+        var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+        if (defaultTab !== current) {
+            current.classList.remove('mui-active');
+            defaultTab.classList.add('mui-active');
+        }
+    });
+</script>
+</body>
+</html>

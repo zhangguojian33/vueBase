@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>VueBase</title>
-    <link rel="stylesheet" type="text/css" href="../public/plug-in/mui/mui.css">
+    <link rel="stylesheet" type="text/css" href="../public/plug-in/mui/mui.min.css">
     <link rel="stylesheet" type="text/css" href="../public/css/app.css">
 </head>
 <body>
@@ -20,6 +20,13 @@
 <script type="text/javascript" src="../public/js/seajs-css.js"></script>
 <script type="text/javascript" src="../public/js/seajs-text.js"></script>
 <div id="page">
+
+    <header class="mui-bar mui-bar-nav">
+        <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+        <a class="mui-action-back mui-btn mui-btn-link mui-pull-right">关闭</a>
+        <h1 class="mui-title">公司名片夹</h1>
+    </header>
+
     <!-- 使用指令 v-link 进行导航。 -->
     <!--高级使用方法：可以利用点击事件来跳转 route.go()-->
     <nav class="mui-bar mui-bar-tab">

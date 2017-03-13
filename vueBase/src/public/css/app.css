@@ -9,3 +9,9 @@
 .mui-plus .mui-bar-nav~.mui-content{
 	padding: 0;
 }
+.ico9 {
+	width: 40px;
+	height: 40px;
+	background: url(../images/ico2.png);
+	display: inline-block;
+}
